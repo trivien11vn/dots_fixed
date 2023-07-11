@@ -154,7 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _entityPrefab: {fileID: 2758214685925754401, guid: e66332cfea258d24284f68f16d0eb4e3,
     type: 3}
-  _spawnPosition: {x: 0, y: 5, z: 0}
+  _position: {x: 0, y: 0, z: 0}
   _canSpawn: 1
   _nextSpawnTime: 0
   _spawnRate: 1
@@ -303,11 +303,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2001187267}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 088a23e7c9ee1324f80b9ba14cc8fa10, type: 3}
+  m_Script: {fileID: 11500000, guid: 0a72024bae71ea94cb6b06b2ae08f5c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hp: 10
-  _armor: 0
+  health: 50
+  protect: 0
 --- !u!1 &2005657289
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,9 +317,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2005657290}
-  - component: {fileID: 2005657291}
-  - component: {fileID: 2005657292}
   - component: {fileID: 2005657293}
+  - component: {fileID: 2005657294}
   m_Layer: 0
   m_Name: Setting
   m_TagString: Untagged
@@ -342,34 +341,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2005657291
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2005657289}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4819a61f9a68694a9ba69143391622f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  level: -1
-  score: 0
---- !u!114 &2005657292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2005657289}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7061df2cd8bd2a44b2fb3cbc38a5e98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 0
-  _damage: 5
 --- !u!114 &2005657293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -383,3 +354,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _score: 0
+--- !u!114 &2005657294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005657289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec3b9368ad6ac3249b58cc8a0e43d354, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: -1
