@@ -4,7 +4,7 @@ using Unity.Entities;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public struct MatAndMes : IComponentData
+public struct Material_Mes : IComponentData
 {
     public BatchMaterialID materialID;
     public BatchMeshID meshID;

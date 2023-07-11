@@ -4,26 +4,23 @@ using UnityEngine;
 
 public class SpawnAuthoring : MonoBehaviour
 {
-    public GameObject _entityPrefab;
+    public GameObject _enemy;
     public Vector3 _position;
     public bool _canSpawn;
-    public float _nextSpawnTime;
-    public float _spawnRate;
-
 }
 
 public class SpawnBaker : Baker<SpawnAuthoring>
 {
     public override void Bake(SpawnAuthoring authoring)
     {
+        // authoring._spawnPosition.y = Random.Range(-2f, 5);
+
         var entity = GetEntity(TransformUsageFlags.Dynamic);
         AddComponent(entity, new Spawn
         {
-            spawn_position = authoring._position,
+            position = authoring._position,
             canSpawn = authoring._canSpawn,
-            enemy = GetEntity(authoring._entityPrefab),
-            nextSpawnTime = authoring._nextSpawnTime,
-            spawnRate = authoring._spawnRate
+            enemy = GetEntity(authoring._enemy)
         });
 
 

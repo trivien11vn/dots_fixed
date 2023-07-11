@@ -5,8 +5,6 @@ using UnityEngine;
 public class HealthAuthoring : MonoBehaviour
 {
     public float health;
-
-    public float protect;
 }
 
 public class HealthBaker : Baker<HealthAuthoring>
@@ -16,8 +14,7 @@ public class HealthBaker : Baker<HealthAuthoring>
         var entity = GetEntity(TransformUsageFlags.Dynamic);
         AddComponent(entity, new Health
         {
-            health = authoring.health,
-            protect_hp = authoring.protect
+            health = authoring.health
         });
     }
 }

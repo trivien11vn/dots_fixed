@@ -16,7 +16,6 @@ public struct Enemy : IComponentData
 public partial struct EnemyMovingJob : IJobEntity
 {
     public float deltaTime;
-    public float speed;
 
     public void Execute(ref LocalTransform tf, ref Enemy enemy)
     {
@@ -32,7 +31,6 @@ public partial struct EnemyMovingJob : IJobEntity
             y = tf.Position.y,
             z = tf.Position.z
         };
-        // tf.RotateY(0.5f * deltaTime);
     }
 
 }

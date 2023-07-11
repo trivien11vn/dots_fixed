@@ -3,7 +3,7 @@ using CortexDeveloper.ECSMessages.Service;
 using Unity.Entities;
 using UnityEngine;
 
-public class Bootstrap : MonoBehaviour
+public class Broadcast : MonoBehaviour
 {
     private static World _world;
     private SimulationSystemGroup _simulationSystemGroup;

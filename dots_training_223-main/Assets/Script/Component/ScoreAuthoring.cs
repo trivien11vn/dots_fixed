@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class ScoreAuthoring : MonoBehaviour
 {
-    public float _score;
+    public float score;
 }
 
 //* This is a way to add component to the entity.
-public class ScoringBaker : Baker<ScoreAuthoring>
+public class ScoreBaker : Baker<ScoreAuthoring>
 {
     public override void Bake(ScoreAuthoring authoring)
     {
         var entity = GetEntity(TransformUsageFlags.Dynamic);
-        AddComponent(entity, new Scoring
+        AddComponent(entity, new Score
         {
-            score = authoring._score
+            score = authoring.score
         });
     }
 }

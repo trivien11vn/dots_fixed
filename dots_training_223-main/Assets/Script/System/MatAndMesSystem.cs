@@ -15,7 +15,7 @@ public partial struct MatAndMesSystem : ISystem
     {
         /*Hàm "OnUpdate" của hệ thống "MatAndMesSystem" có một tham số truyền vào là "ref SystemState state". Điều này 
         cho phép hệ thống truy cập và thay đổi trạng thái (state) của chính nó trong quá trình cập nhật.*/
-        foreach (var (matAndMes, matmeshinfo, entity) in SystemAPI.Query<RefRO<MatAndMes>, RefRW<MaterialMeshInfo>>().WithEntityAccess())
+        foreach (var (matAndMes, matmeshinfo, entity) in SystemAPI.Query<RefRO<Material_Mes>, RefRW<MaterialMeshInfo>>().WithEntityAccess())
         {
             matmeshinfo.ValueRW.MaterialID = matAndMes.ValueRO.materialID;
             matmeshinfo.ValueRW.MeshID = matAndMes.ValueRO.meshID;

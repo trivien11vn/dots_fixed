@@ -3,7 +3,7 @@ using CortexDeveloper.ECSMessages.Service;
 using Unity.Collections;
 using Unity.Entities;
 
-public partial struct ScoringSystem : ISystem
+public partial struct Score_System : ISystem
 {
     public void OnCreate(ref SystemState state)
     {
@@ -15,11 +15,9 @@ public partial struct ScoringSystem : ISystem
 
         foreach (var (scoring, enemy, entity) in SystemAPI.Query<RefRW<IncrementScore>, RefRO<Enemy>>().WithEntityAccess())
         {
-            var _scoreConfig = SystemAPI.GetSingleton<Scoring>();
-            var a = int.Parse(_scoreConfig.score.ToString()) + 1f;
-            // convert a to string
-            _scoreConfig.score = a;
-            SystemAPI.SetSingleton<Scoring>(_scoreConfig);
+            var incre_score = SystemAPI.GetSingleton<Score>();
+            incre_score.score = int.Parse(incre_score.score.ToString()) + 1f;
+            SystemAPI.SetSingleton<Score>(incre_score);
             ecb.RemoveComponent<IncrementScore>(entity);
         }
         ecb.Playback(state.EntityManager);
@@ -27,8 +25,6 @@ public partial struct ScoringSystem : ISystem
 
     public void OnDestroy(ref SystemState state)
     {
-        // throw new System.NotImplementedException();
-
     }
 
 

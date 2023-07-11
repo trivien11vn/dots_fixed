@@ -6,7 +6,6 @@ public class SettingAuthoring : MonoBehaviour
     public float level;
 }
 
-//* This is a way to add component to the entity.
 public class SettingBaker : Baker<SettingAuthoring>
 {
     public override void Bake(SettingAuthoring authoring)

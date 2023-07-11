@@ -3,15 +3,15 @@ using Unity.Rendering;
 using UnityEngine;
 
 
-public class MatAndMesAuthoring : MonoBehaviour
+public class MMAuthoring : MonoBehaviour
 {
-    public Mesh _mesh;
-    public Material _material;
+    public Mesh mesh;
+    public Material material;
 }
 
-public class MatAndMesBaker : Baker<MatAndMesAuthoring>
+public class Material_MesBaker : Baker<MMAuthoring>
 {
-    public override void Bake(MatAndMesAuthoring authoring)
+    public override void Bake(MMAuthoring authoring)
     {
         var entity = GetEntity(TransformUsageFlags.Dynamic);
 
@@ -24,10 +24,10 @@ public class MatAndMesBaker : Baker<MatAndMesAuthoring>
         /*Sau đó, thông tin về Mesh và Material được đăng ký thông qua hệ thống "Entities​Graphics​System". Điều này được 
         thực hiện bằng cách sử dụng phương thức "RegisterMesh" và "RegisterMaterial" của biến "hybirdRender" để đăng ký 
         Mesh và Material từ đối tượng "MatAndMesAuthoring"*/
-        AddComponent(entity, new MatAndMes
+        AddComponent(entity, new Material_Mes
         {
-            meshID = hybirdRender.RegisterMesh(authoring._mesh),
-            materialID = hybirdRender.RegisterMaterial(authoring._material)
+            meshID = hybirdRender.RegisterMesh(authoring.mesh),
+            materialID = hybirdRender.RegisterMaterial(authoring.material)
         });
     }
 }

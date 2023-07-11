@@ -16,7 +16,7 @@ public class UpdateScore : MonoBehaviour
     {
         EntityManager entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
         
-        var entity_score = entityManager.CreateEntityQuery(typeof(Scoring)).GetSingleton<Scoring>();
+        var entity_score = entityManager.CreateEntityQuery(typeof(Score)).GetSingleton<Score>();
         scoreText.text = entity_score.score.ToString();
     }
 }
