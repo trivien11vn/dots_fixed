@@ -12,13 +12,11 @@ public class UpdateScore : MonoBehaviour
     {
 
     }
-
-    // Update is called once per frame
     void Update()
     {
         EntityManager entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
-        // get the score
-        var _score = entityManager.CreateEntityQuery(typeof(Scoring)).GetSingleton<Scoring>();
-        scoreText.text = _score.score.ToString();
+        
+        var entity_score = entityManager.CreateEntityQuery(typeof(Scoring)).GetSingleton<Scoring>();
+        scoreText.text = entity_score.score.ToString();
     }
 }

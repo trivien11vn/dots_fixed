@@ -4,8 +4,8 @@ using UnityEngine;
 
 public struct Spawn : IComponentData
 {
-    public Entity enemyEntity;
-    public float3 spawnPosition;
+    public Entity enemy;
+    public float3 spawn_position;
     public bool canSpawn;
     public float nextSpawnTime;
     public float spawnRate;

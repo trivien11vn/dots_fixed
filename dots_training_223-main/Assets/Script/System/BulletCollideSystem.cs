@@ -34,13 +34,9 @@ namespace Systems
             được sử dụng xong. */
             var ecb = new EntityCommandBuffer(Allocator.TempJob);
 
-            /*Lệnh SystemAPI.GetSingletonEntity<GameConfig>() được sử dụng để lấy ra entity đại diện cho singleton 
-            component GameConfig. Trong ECS, singleton component là một loại thành phần chỉ có một instance duy nhất 
-            trong toàn bộ hệ thống.
-            Singleton component thường chứa thông tin chung, cấu hình và trạng thái toàn cục của trò chơi hoặc ứng dụng. 
-            Để truy cập và thao tác với singleton component, ta cần lấy entity đại diện cho nó.*/
+            
 
-            var gameConfigEntity = SystemAPI.GetSingletonEntity<GameConfig>();
+            var setting = SystemAPI.GetSingletonEntity<Setting>();
 
             //* Dependency is a way to make sure that the job is finished before the next job is started.
             state.Dependency = new JobCheckCollision

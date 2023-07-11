@@ -7,13 +7,6 @@ public partial struct ScoringSystem : ISystem
 {
     public void OnCreate(ref SystemState state)
     {
-        // float startValue = 5;
-
-        // state.EntityManager.CreateSingleton(
-        //     new Scoring
-        //     {
-        //         score = startValue
-        //     });
     }
 
     public void OnUpdate(ref SystemState state)

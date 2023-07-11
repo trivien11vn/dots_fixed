@@ -18,7 +18,7 @@ public partial struct EnemySystem : ISystem
     {
         deltaTime = SystemAPI.Time.DeltaTime;
 
-        //* Enemy Query
+
         enemyQuery = new EntityQueryBuilder(Allocator.Temp)
             .WithAllRW<Enemy>()
             .WithAll<LocalTransform>()
@@ -29,10 +29,6 @@ public partial struct EnemySystem : ISystem
     [BurstCompile]
     public void OnUpdate(ref SystemState state)
     {
-        //! USING QUERY
-        // QueryToMoveEnemy(ref state);
-
-        // !USING JOB SYSTEM
         JobSystemToMoveEnemy(ref state);
     }
 
@@ -45,28 +41,4 @@ public partial struct EnemySystem : ISystem
         _job.ScheduleParallel(enemyQuery);
 
     }
-
-    // private void QueryToMoveEnemy(ref SystemState state)
-    // {
-    //     foreach (var (transform, speed) in SystemAPI.Query<
-    //     RefRW<LocalTransform>,
-    //     RefRW<Enemy>
-    //     >())
-    //     {
-    //         if (Mathf.Abs(transform.ValueRW.Position.x) > 12)
-    //         {
-    //             speed.ValueRW.speed = -speed.ValueRO.speed;
-
-    //         }
-
-    //         transform.ValueRW.Position = new float3
-    //         {
-    //             x = transform.ValueRW.Position.x + speed.ValueRO.speed * deltaTime,
-    //             y = transform.ValueRW.Position.y,
-    //             z = transform.ValueRW.Position.z
-    //         };
-
-    //         transform.ValueRW.RotateY(1 * deltaTime);
-    //     }
-    // }
 }

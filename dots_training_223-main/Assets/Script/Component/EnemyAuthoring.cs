@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class EnemyAuthoring : MonoBehaviour
 {
-    public float _speed;
-    public Material _matRed;
-    public Material _matGreen;
+    public float value_speed;
+    public Material value_Red;
+    public Material value_Green;
 }
 
 public class EnemyBaker : Baker<EnemyAuthoring>
@@ -14,7 +14,7 @@ public class EnemyBaker : Baker<EnemyAuthoring>
     {
 
         var entity = GetEntity(TransformUsageFlags.Dynamic);
-        AddComponent(entity, new Enemy { speed = authoring._speed });
+        AddComponent(entity, new Enemy { speed = authoring.value_speed });
 
     }
 }

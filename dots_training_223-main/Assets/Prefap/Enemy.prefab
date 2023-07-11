@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6699932307405269639}
   - component: {fileID: 3767166666593858414}
   - component: {fileID: 8092049239202907335}
-  - component: {fileID: 7893792207721179171}
+  - component: {fileID: 5803629475545278442}
   - component: {fileID: 7387802328654380894}
   - component: {fileID: 7521318707369471815}
   - component: {fileID: 6996739635918844381}
@@ -122,10 +122,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a449208633b13c74c814cab5d3594ffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 3
-  _matRed: {fileID: 2100000, guid: c61c899afb56afa47bc2f3e8c511e2c1, type: 2}
-  _matGreen: {fileID: 2100000, guid: 0a98280eceabdfc4694eb655484a66be, type: 2}
---- !u!114 &7893792207721179171
+  value_speed: 5
+  value_Red: {fileID: 0}
+  value_Green: {fileID: 0}
+--- !u!114 &5803629475545278442
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,11 +134,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2758214685925754401}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 088a23e7c9ee1324f80b9ba14cc8fa10, type: 3}
+  m_Script: {fileID: 11500000, guid: 0a72024bae71ea94cb6b06b2ae08f5c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hp: 10
-  _armor: 0
+  health: 10
+  protect: 0
 --- !u!65 &7387802328654380894
 BoxCollider:
   m_ObjectHideFlags: 0

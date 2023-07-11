@@ -13,7 +13,6 @@ public class UserBaker : Baker<UserAuthoring>
         var entity = GetEntity(TransformUsageFlags.Dynamic);
         AddComponent(entity, new User
         {
-            //, TransformUsageFlags.Dynamic
             bulletPrefab = GetEntity(authoring._bulletPrefab)
         });
     }

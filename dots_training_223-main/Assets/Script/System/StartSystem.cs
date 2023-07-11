@@ -11,7 +11,6 @@ public partial struct StartSystem : ISystem
     public void OnUpdate(ref SystemState state)
     {
         new StartGameCommandListenerJob().Schedule();
-
         /*sau khi hệ thống được cập nhật lần đầu tiên, nó sẽ bị vô hiệu hóa (disabled). Việc này ngăn hệ thống được cập nhật trong các vòng lặp tiếp theo. */
         state.Enabled = false;
     }

@@ -10,9 +10,6 @@ using Unity.Collections;
 using Unity.Rendering;
 
 
-
-
-
 public partial struct SpawnSystem : ISystem
 {
     EntityQuery componentQuery;
@@ -29,11 +26,8 @@ public partial struct SpawnSystem : ISystem
 
         public void Execute(ref LocalTransform tf, ref Spawn spawner)
         {
-            // action
-            //spawner.canSpawn kiểm tra có thể tạo enemy mới hay không
             if (spawner.canSpawn && (numberOfEnemyInScene == 0))
             {
-                //ProcessSpawn được gọi để tạo ra các enemy mới
                 ProcessSpawn(ref ecb, spawner);
             }
         }
@@ -41,10 +35,11 @@ public partial struct SpawnSystem : ISystem
 
         private void ProcessSpawn(ref EntityCommandBuffer.ParallelWriter ecb, Spawn spawner)
         {
-            Entity enemyPrefab = spawner.enemyEntity;
+            Entity enemyPrefab = spawner.enemy;
             switch (level)
             {
-                case 0:                 
+                case 0:
+                    Debug.Log("aabbcc");                 
                     float sideA = 6f;
                     float sideB = 8f;
                     float sideC = 10f;
@@ -212,10 +207,10 @@ public partial struct SpawnSystem : ISystem
 
     private float LevelUp(ref SystemState state)
     {
-        var gameConfig = SystemAPI.GetSingleton<GameConfig>();
-        gameConfig._level += 1;
-        SystemAPI.SetSingleton(gameConfig);
-        return gameConfig._level;
+        var setting = SystemAPI.GetSingleton<Setting>();
+        setting.global_level += 1;
+        SystemAPI.SetSingleton(setting);
+        return setting.global_level;
     }
 
 

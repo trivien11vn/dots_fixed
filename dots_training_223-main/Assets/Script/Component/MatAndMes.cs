@@ -6,7 +6,6 @@ using UnityEngine.Rendering;
 
 public struct MatAndMes : IComponentData
 {
-    // create mesh
     public BatchMaterialID materialID;
     public BatchMeshID meshID;
 }

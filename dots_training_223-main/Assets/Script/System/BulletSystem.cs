@@ -13,7 +13,6 @@ public partial struct BulletSystem : ISystem
     public void OnCreate(ref SystemState state)
     {
         deltaTime = SystemAPI.Time.DeltaTime;
-        // Allocator.Temp: chi dinh bo nho duoc cap phat tam thoi va se giai phong sau khi truy van hoan thanh
         bulletQuery = new EntityQueryBuilder(Allocator.Temp)
     .WithAllRW<Bullet>()
     .WithAll<LocalTransform>()
@@ -24,15 +23,8 @@ public partial struct BulletSystem : ISystem
     [BurstCompile]
     public void OnUpdate(ref SystemState state)
     {
-        //! Query
-        // MoveBullet(ref state);
-
-        //! Job System
         JobMoveBullet(ref state);
-        // complete the job
         state.Dependency.Complete();
-
-        //if bullet above 10, destroy it
         DestroyBullet(ref state);
 
     }
@@ -60,25 +52,7 @@ public partial struct BulletSystem : ISystem
         {
             deltaTime = SystemAPI.Time.DeltaTime
         };
-        //* ScheduleParallel is a way to run the job in parallel.
         bulletJob.ScheduleParallel(bulletQuery);
     }
-
-    // private void MoveBullet(ref SystemState state)
-    // {
-    //     //* Query is a way to get the component from the entity.
-    //     foreach (var (transform, speed, entity) in SystemAPI.Query<
-    //             RefRW<LocalTransform>,
-    //             RefRW<Bullet>
-    //             >().WithEntityAccess())
-    //     {
-    //         transform.ValueRW.Position.y += speed.ValueRO.speed * deltaTime;
-
-    //         // Rotate y
-    //         //* Quaternion Euler is degree in Unity.
-    //         transform.ValueRW.Rotation = Quaternion.Euler(0, 90 * deltaTime, 0);
-    //     }
-    // }
-
 }
 

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using Unity.Entities;
 using UnityEngine;
 
-public struct hp : IComponentData
+public struct Health : IComponentData
 {
     public float health;
-    public float armor;
+    public float protect_hp;
 }
